@@ -171,6 +171,7 @@ getopt_long(int argc, char *const argv[],
 		return BADCH;
 	}
 
+	// 后面紧跟 : 的是 required_argument
 	if (oli[1] != ':')
 	{							/* don't need argument */
 		optarg = NULL;
@@ -179,7 +180,7 @@ getopt_long(int argc, char *const argv[],
 	}
 	else
 	{							/* need an argument */
-		if (*place)				/* no white space */
+		if (*place)				/* no white space */ // initdb -D/data/postgres 可以成功, optarg = /data/postgres
 			optarg = place;
 		else if (argc <= ++optind)
 		{						/* no arg */

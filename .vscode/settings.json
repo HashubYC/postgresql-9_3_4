@@ -1,0 +1,27 @@
+{
+    "files.associations": {
+        "*.go": "go",
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript",
+        "postgres_fe.h": "c",
+        "c.h": "c",
+        "fcntl.h": "c",
+        "cstdio": "cpp",
+        "string.h": "c",
+        "getopt_long.h": "c",
+        "pg_wchar.h": "c",
+        "getaddrinfo.h": "c",
+        "dirent.h": "c",
+        "fe_memutils.h": "c",
+        "palloc.h": "c",
+        "stat.h": "c",
+        "postgres.h": "c",
+        "parsenodes.h": "c",
+        "trigger.h": "c",
+        "spi.h": "c",
+        "rel.h": "c",
+        "execnodes.h": "c",
+        "pg_config_ext.h": "c"
+    }
+}

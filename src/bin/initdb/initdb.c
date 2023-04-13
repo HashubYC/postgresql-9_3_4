@@ -1188,6 +1188,9 @@ setup_config(void)
 
 	/* postgresql.conf */
 
+	// setup_config 中 readfile(conf_file) 的路径从何而来?
+	// CLEAR: setup_data_file_paths 函数设置 conf_file = $share_path/postgresql.conf.sample
+	// $share_path 的来路，1. 使用 -L 指定，2. setup_bin_paths 中 get_share_path 设置
 	conflines = readfile(conf_file);
 
 	snprintf(repltok, sizeof(repltok), "max_connections = %d", n_connections);
@@ -3336,7 +3339,7 @@ initialize_data_directory(void)
 
 	setup_signals();
 
-	umask(S_IRWXG | S_IRWXO);
+	umask(S_IRWXG | S_IRWXO); // 设置 umask = 0077 使新创建的文件夹为 700
 
 	create_data_directory();
 
@@ -3465,6 +3468,7 @@ main(int argc, char *argv[])
 
 	/* process command-line options */
 
+	// 后面紧跟 : 的是 required_argument
 	while ((c = getopt_long(argc, argv, "dD:E:kL:nNU:WA:sST:X:", long_options, &option_index)) != -1)
 	{
 		switch (c)

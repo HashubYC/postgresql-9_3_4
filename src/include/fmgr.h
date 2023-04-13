@@ -66,7 +66,7 @@ typedef struct FmgrInfo
 typedef struct FunctionCallInfoData
 {
 	FmgrInfo   *flinfo;			/* ptr to lookup info used for this call */
-	fmNodePtr	context;		/* pass info about context of call */
+	fmNodePtr	context;		/* 传递关于调用上下文的信息 pass info about context of call */
 	fmNodePtr	resultinfo;		/* pass or return extra info about result */
 	Oid			fncollation;	/* collation for function to use */
 	bool		isnull;			/* function must set true if result is NULL */

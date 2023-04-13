@@ -419,7 +419,7 @@ get_progname(const char *argv0)
 
 	nodir_name = last_dir_separator(argv0);
 	if (nodir_name)
-		nodir_name++;
+		nodir_name++; // 去掉 /initdb 的 /
 	else
 		nodir_name = skip_drive(argv0);
 

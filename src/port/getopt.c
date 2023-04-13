@@ -38,6 +38,7 @@ static char sccsid[] = "@(#)getopt.c	8.3 (Berkeley) 4/27/95";
 
 
 /*
+ * Solaris 是一个操作系统，把opterr定义在内核lic 中，而不是单独的getopt模块
  * On some versions of Solaris, opterr and friends are defined in core libc
  * rather than in a separate getopt module.  Define these variables only
  * if configure found they aren't there by default.  (We assume that testing
