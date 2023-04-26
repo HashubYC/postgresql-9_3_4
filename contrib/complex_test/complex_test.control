@@ -1,0 +1,5 @@
+# complex_test extension
+comment = 'myself complex_test'
+default_version = '1.1'
+module_pathname = '$libdir/complex_test'
+relocatable = true

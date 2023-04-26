@@ -22,7 +22,7 @@
 -- 用户定义的类型必须有一个输入和一个输出函数，还可以有二进制输入和输出函数。所有这些通常都是用户定义的C函数。
 -----------------------------
 
--- Assume the user defined functions are in _OBJWD_/complex$DLSUFFIX
+-- Assume the user defined functions are in MODULE_PATHNAME$DLSUFFIX
 -- (we do not want to assume this is in the dynamic loader search path).
 -- Look at $PWD/complex.c for the source.  Note that we declare all of
 -- them as STRICT, so we do not need to cope with NULL inputs in the
@@ -36,7 +36,7 @@
 
 CREATE FUNCTION complex_in(cstring)
    RETURNS complex
-   AS '_OBJWD_/complex'
+   AS 'MODULE_PATHNAME'
    LANGUAGE C IMMUTABLE STRICT;
 
 -- the output function 'complex_out' takes the internal representation and
@@ -44,7 +44,7 @@ CREATE FUNCTION complex_in(cstring)
 
 CREATE FUNCTION complex_out(complex)
    RETURNS cstring
-   AS '_OBJWD_/complex'
+   AS 'MODULE_PATHNAME'
    LANGUAGE C IMMUTABLE STRICT;
 
 -- the binary input function 'complex_recv' takes a StringInfo buffer
@@ -52,7 +52,7 @@ CREATE FUNCTION complex_out(complex)
 
 CREATE FUNCTION complex_recv(internal)
    RETURNS complex
-   AS '_OBJWD_/complex'
+   AS 'MODULE_PATHNAME'
    LANGUAGE C IMMUTABLE STRICT;
 
 -- the binary output function 'complex_send' takes the internal representation
@@ -60,7 +60,7 @@ CREATE FUNCTION complex_recv(internal)
 
 CREATE FUNCTION complex_send(complex)
    RETURNS bytea
-   AS '_OBJWD_/complex'
+   AS 'MODULE_PATHNAME'
    LANGUAGE C IMMUTABLE STRICT;
 
 
@@ -108,7 +108,7 @@ SELECT * FROM test_complex;
 -- first, define a function complex_add (also in complex.c)
 CREATE FUNCTION complex_add(complex, complex)
    RETURNS complex
-   AS '_OBJWD_/complex'
+   AS 'MODULE_PATHNAME'
    LANGUAGE C IMMUTABLE STRICT;
 
 -- we can now define the operator. We show a binary operator here but you
@@ -138,14 +138,14 @@ SELECT  a + '(1.0,1.0)'::complex AS aa,
 --	transition functions.
 -----------------------------
 
-CREATE AGGREGATE complex_sum (
-   sfunc = complex_add,
-   basetype = complex,
-   stype = complex,
-   initcond = '(0,0)'
-);
+-- CREATE AGGREGATE complex_sum (
+--    sfunc = complex_add,
+--    basetype = complex,
+--    stype = complex,
+--    initcond = '(0,0)'
+-- );
 
-SELECT complex_sum(a) FROM test_complex;
+-- SELECT complex_sum(a) FROM test_complex;
 
 
 -----------------------------
@@ -157,15 +157,15 @@ SELECT complex_sum(a) FROM test_complex;
 
 -- first, define the required operators
 CREATE FUNCTION complex_abs_lt(complex, complex) RETURNS bool
-   AS '_OBJWD_/complex' LANGUAGE C IMMUTABLE STRICT;
+   AS 'MODULE_PATHNAME' LANGUAGE C IMMUTABLE STRICT;
 CREATE FUNCTION complex_abs_le(complex, complex) RETURNS bool
-   AS '_OBJWD_/complex' LANGUAGE C IMMUTABLE STRICT;
+   AS 'MODULE_PATHNAME' LANGUAGE C IMMUTABLE STRICT;
 CREATE FUNCTION complex_abs_eq(complex, complex) RETURNS bool
-   AS '_OBJWD_/complex' LANGUAGE C IMMUTABLE STRICT;
+   AS 'MODULE_PATHNAME' LANGUAGE C IMMUTABLE STRICT;
 CREATE FUNCTION complex_abs_ge(complex, complex) RETURNS bool
-   AS '_OBJWD_/complex' LANGUAGE C IMMUTABLE STRICT;
+   AS 'MODULE_PATHNAME' LANGUAGE C IMMUTABLE STRICT;
 CREATE FUNCTION complex_abs_gt(complex, complex) RETURNS bool
-   AS '_OBJWD_/complex' LANGUAGE C IMMUTABLE STRICT;
+   AS 'MODULE_PATHNAME' LANGUAGE C IMMUTABLE STRICT;
 
 CREATE OPERATOR < (
    leftarg = complex, rightarg = complex, procedure = complex_abs_lt,
@@ -197,7 +197,7 @@ CREATE OPERATOR > (
 
 -- create the support function too
 CREATE FUNCTION complex_abs_cmp(complex, complex) RETURNS int4
-   AS '_OBJWD_/complex' LANGUAGE C IMMUTABLE STRICT;
+   AS 'MODULE_PATHNAME' LANGUAGE C IMMUTABLE STRICT;
 
 -- now we can make the operator class
 CREATE OPERATOR CLASS complex_abs_ops

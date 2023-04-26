@@ -5,7 +5,7 @@
             "name": "postgres",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/usr/local/pgsql/bin/postgres",
+            "program": "/usr/local/postgres-9.3.4/bin/postgres",
             "args": [
                 "--help"
             ],
@@ -26,7 +26,7 @@
             "name": "initdb",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/usr/local/pgsql/bin/initdb",
+            "program": "/usr/local/postgres-9.3.4/bin/initdb",
             "args": [
                 "-D",
                 "/data/postgres"
@@ -48,7 +48,7 @@
             "name": "postgres backend",
             "type": "cppdbg",
             "request": "attach",
-            "program": "/usr/local/pgsql/bin/postgres",
+            "program": "/usr/local/postgres-9.3.4/bin/postgres",
             "processId": "${command:pickProcess}",
             "MIMode": "gdb",
             "setupCommands": [

@@ -74,7 +74,9 @@ struct varatt_external
 
 /*
  * These structs describe the header of a varlena object that may have been
- * TOASTed.  Generally, don't reference these structs directly, but use the
+ * TOASTed.  
+ * 这些结构体描述了一个可能已经被 TOASTed 的 varlena 对象的头文件。
+ * Generally, don't reference these structs directly, but use the
  * macros below.
  *
  * We use separate structs for the aligned and unaligned cases because the
