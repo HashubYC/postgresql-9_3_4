@@ -216,7 +216,7 @@ extern struct varlena *pg_detoast_datum_packed(struct varlena * datum);
 			pfree(ptr); \
 	} while (0)
 
-/* Macros for fetching arguments of standard types */
+/* Macros for fetching arguments of standard types 用于获取标准类型参数的宏 */
 
 #define PG_GETARG_DATUM(n)	 (fcinfo->arg[n])
 #define PG_GETARG_INT32(n)	 DatumGetInt32(PG_GETARG_DATUM(n))

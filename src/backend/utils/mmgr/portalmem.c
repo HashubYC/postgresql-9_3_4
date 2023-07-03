@@ -3,9 +3,9 @@
  * portalmem.c
  *	  backend portal memory management
  *
- * Portals are objects representing the execution state of a query.
+ * Portals are objects representing the execution state of a query. 表示查询执行状态的对象。
  * This module provides memory management services for portals, but it
- * doesn't actually run the executor for them.
+ * doesn't actually run the executor for them. 该模块为 portals 提供内存管理服务，但实际上并不为 portals 运行执行器。
  *
  *
  * Portions Copyright (c) 1996-2013, PostgreSQL Global Development Group

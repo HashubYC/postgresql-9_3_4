@@ -1044,6 +1044,7 @@ exec_simple_query(const char *query_string)
 
 		/*
 		 * Run the portal to completion, and then drop it (and the receiver).
+		 * 运行 portal 直到完成，然后删除它(和接收器)。
 		 */
 		(void) PortalRun(portal,
 						 FETCH_ALL,
