@@ -408,6 +408,7 @@ list_nth_cell(const List *list, int n)
 /*
  * Return the data value contained in the n'th element of the
  * specified list. (List elements begin at 0.)
+ * 返回指定列表的第n个元素中包含的数据值。(列表元素从0开始。)
  */
 void *
 list_nth(const List *list, int n)

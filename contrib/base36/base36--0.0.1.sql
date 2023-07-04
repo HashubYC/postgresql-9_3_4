@@ -119,3 +119,12 @@ CREATE OPERATOR CLASS hash_base36_ops
     DEFAULT FOR TYPE base36 USING hash AS
         OPERATOR        1       = ,
         FUNCTION        1       hash_base36(base36);
+
+
+-- -- type and operators omitted
+-- CREATE CAST (integer as base36) WITHOUT FUNCTION AS IMPLICIT;
+-- CREATE CAST (base36 as integer) WITHOUT FUNCTION AS IMPLICIT;
+
+-- type and operators omitted
+CREATE CAST (integer as base36) WITHOUT FUNCTION AS ASSIGNMENT;
+CREATE CAST (base36 as integer) WITHOUT FUNCTION AS ASSIGNMENT;

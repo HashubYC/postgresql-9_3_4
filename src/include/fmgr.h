@@ -57,7 +57,7 @@ typedef struct FmgrInfo
 	unsigned char fn_stats;		/* collect stats if track_functions > this */
 	void	   *fn_extra;		/* extra space for use by handler */
 	MemoryContext fn_mcxt;		/* memory context to store fn_extra in */
-	fmNodePtr	fn_expr;		/* expression parse tree for call, or NULL */
+	fmNodePtr	fn_expr;		/* 表达式解析树的调用，或NULL expression parse tree for call, or NULL */
 } FmgrInfo;
 
 /*
@@ -65,7 +65,7 @@ typedef struct FmgrInfo
  */
 typedef struct FunctionCallInfoData
 {
-	FmgrInfo   *flinfo;			/* ptr to lookup info used for this call */
+	FmgrInfo   *flinfo;			/* PTR查找用于此调用的信息 ptr to lookup info used for this call */
 	fmNodePtr	context;		/* 传递关于调用上下文的信息 pass info about context of call */
 	fmNodePtr	resultinfo;		/* pass or return extra info about result */
 	Oid			fncollation;	/* collation for function to use */

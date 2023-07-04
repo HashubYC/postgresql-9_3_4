@@ -30,6 +30,10 @@
         "type_traits": "c",
         "utility": "c",
         "builtins.h": "c",
-        "fmgr.h": "c"
+        "fmgr.h": "c",
+        "uuid.h": "c",
+        "int8.h": "c",
+        "base36.h": "c",
+        "limits.h": "c"
     }
 }
